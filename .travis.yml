@@ -5,19 +5,19 @@ env:
   - distribution: centos
     version: 6
     init: /sbin/init
-    run_opts: ""
+    run_opts: "--volume=${PWD}/test/etc_hosts/hosts.centos-6:/etc/hosts"
   - distribution: centos
     version: 7
     init: /usr/lib/systemd/systemd
-    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro"
+    run_opts: "--privileged --volume=/sys/fs/cgroup:/sys/fs/cgroup:ro  --volume=${PWD}/test/etc_hosts/hosts.centos-7:/etc/hosts"
   - distribution: ubuntu
     version: 14.04
     init: /sbin/init
-    run_opts: ""
+    run_opts: "--volume=${PWD}/test/etc_hosts/hosts.Ubuntu-14.04:/etc/hosts""
   - distribution: ubuntu
     version: 12.04
     init: /sbin/init
-    run_opts: ""
+    run_opts: "--volume=${PWD}/test/etc_hosts/hosts.Ubuntun-12.04:/etc/hosts""
 
 services:
   - docker
