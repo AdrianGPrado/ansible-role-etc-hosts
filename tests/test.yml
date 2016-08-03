@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
   remote_user: root
+  vars:
+    - public_iface: "{{ ansible_default_ipv4.interface }}"
   roles:
     - hosts-file
